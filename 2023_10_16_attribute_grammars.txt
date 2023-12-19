@@ -1,0 +1,70 @@
+#include <iostream>
+int n;
+char ch;
+int main() {
+  	n = 10;
+  	ch = ‘1’;
+  	while (n) {
+    	n = n - 1;
+    	cout << n+ch; 
+  	}
+  	return 0;
+}
+
+
+
+
+Pr-> IS D int main(){P return 0;} # begin
+
+D -> A D1                         # integer n
+	A -> int L
+    	L.type = int
+        L -> I
+        	I.type = int
+            I -> n
+            	n.type = int
+            I.type = void
+        L.type = void
+    A.type = void
+
+    D1 -> A1 D2                  # char ch
+        A1 -> char L1;
+            L1.type = char
+            L1-> I1
+                I1.type = char
+                I1-> ch
+                    ch.type = char
+                I1.type = void
+            L1.type = void 
+       A1.type = void
+D.type = void                    # close D off
+
+
+P -> S1 S2                       # inside MAIN()
+	S1 -> LS1 = E1
+        LS1 -> n
+            LS1.type = int
+    	E1 -> T1
+    		T1-> F1
+    			F1-> 10          # assignment n = 10
+    				F1.type = int
+                F1.type = void   # "closing braces"
+            T1.type = void
+        E1.type = void
+    S1.type = void
+    
+    S2 -> LS2 = E2
+    	LS2 -> ch
+        	LS2.type = char
+        E2 -> T2
+       		T2 -> F2
+            	F2 -> '1'           # assignment ch = '1'
+                	F2.type = char
+                F2.type = void      # "closing braces"
+            T2.type = void
+        E2.type = void
+    S2.type = void
+P.type = void 
+                
+                
+                

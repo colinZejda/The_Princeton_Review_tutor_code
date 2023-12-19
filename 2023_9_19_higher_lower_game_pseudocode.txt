@@ -1,0 +1,18 @@
+# tutor solution
+1) prompt user for lower bound
+2) prompt user for upper bound
+3) ensure lower bound < upper bound
+4) generate a random number that is between lower bound and upper bound, call it target
+5) loop while user's guesses are too high or too low:
+   5.1) ask user to enter number within the bounds
+   5.2) if user number < lower OR user number > upper bound, print "ERROR, enter a number within bounds, please" and continue
+   5.3) if user number > target
+    print "LOWER!"
+    continue
+   5.4) if user number < target 
+    print "HIGHER!"
+    continue
+   5.5) if user number = target
+    print "YOU GOT IT!"
+    break
+6) end 

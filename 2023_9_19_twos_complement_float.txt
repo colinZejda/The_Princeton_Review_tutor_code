@@ -1,0 +1,31 @@
+Q: What is the signed decimal equivalent of the following two's complement binary value?  11111000.1001
+
+start: 11111000.1001
+
+we have a signed binary float, we want a signed base 10 float
+
+leftmost digit = 1, we know it's negative
+
+1) flip all significant bits (everything up until trailing zeros, in this case, the entire float)
+
+inverted: 00000111.0110
+
+
+
+
+2) now, simply expand the fraction
+
+whole number part: (1 * 2^2) + (1 * 2^1) + (1 * 2^0) = 7
+
+decimal part:          (0 * 2^-1) + (1 * 2^-2) + (1 * 2^-3) + (0 * 2^-4) = 0.25 + 0.125 = 0.375
+
+in total: 7.375
+
+
+
+
+3) remember to add back the negative sign
+
+-7.375, final answer
+
+

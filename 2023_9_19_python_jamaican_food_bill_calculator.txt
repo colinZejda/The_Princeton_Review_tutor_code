@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class JamaicanJoy {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Jamaican Joy Lunch App  ...\n");
+
+        // Variables to store order details
+        String soupType, pattyType;
+        double soupCost, pattyCost, drinkCost;
+
+        // Prompt for soup type and cost
+        System.out.print("\ntype of soup: ");
+        soupType = scanner.nextLine();
+
+        System.out.print("\nCost of soup: ");
+        soupCost = scanner.nextDouble();
+        scanner.nextLine(); 
+
+        // Prompt for patty type and cost
+        System.out.print("\nType of patty: ");
+        pattyType = scanner.nextLine();
+
+        System.out.print("\nCost of patty: ");
+        pattyCost = scanner.nextDouble();
+        scanner.nextLine(); 
+
+        // Prompt for drink cost
+        System.out.print("\nCost of drink: ");
+        drinkCost = scanner.nextDouble();
+
+        // Calculate total cost of Meal
+        double costOfMeal = soupCost + pattyCost + drinkCost;
+
+        // Add 7% sales tax
+        double tax = 0.07 * costOfMeal;
+        double totalCost = costOfMeal + tax;
+
+        // Display the order details and total cost
+        System.out.println("\nOrder Details:");
+        System.out.println("Soup Type: " + soupType);
+        System.out.println("Soup Cost: " + soupCost);
+        System.out.println("Patty Type: " + pattyType);
+        System.out.println("Patty Cost: " + pattyCost);
+        System.out.println("Drink Cost: " + drinkCost);
+        System.out.println("Cost of Meal: " + costOfMeal);
+        System.out.println("Tax (7%): " + tax);
+		System.out.println("Total Cost: " + totalCost);
+        // Close the scanner
+        scanner.close();
+    }
+}

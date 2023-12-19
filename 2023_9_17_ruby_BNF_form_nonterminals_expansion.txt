@@ -1,0 +1,48 @@
+# use site: https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/yacc.html 
+
+PROGRAM  : COMPSTMT                                    # start symbol
+
+COMPSTMT : STMT (TERM EXPR)* [TERM]           # production rule for compstmt
+
+TERM : ';'
+
+
+
+
+# production rule for stmt
+
+STMT : CALL do [`|' [BLOCK_VAR] `|'] COMPSTMT end
+
+CALL : FUNCTION
+
+FUNCTION : OPERATION [`(' [CALL_ARGS] `)']
+
+OPERATION : IDENTIFIER
+
+IDENTIFIER [`(' [CALL_ARGS] `)']             # substitution happened here
+
+CALL_ARGS : ARGS
+
+
+
+
+## from your assignment: IDENTIFIER = IDENTIFIER + - ARG 
+
+
+
+
+WHAT WE HAVE SO FAR:
+
+PROGRAM  : COMPSTMT                                             # start symbol, apply production rule for COMPSTMT
+
+COMPSTMT : STMT (TERM EXPR)* [TERM]                    # apply production rule for STMT
+
+CALL do [`|' [BLOCK_VAR] `|'] COMPSTMT end            # apply production rule for CALL
+
+FUNCTION do [`|' [BLOCK_VAR] `|'] COMPSTMT end    # apply production rule for FUNCTION
+
+OPERATION (`(' [CALL_ARGS] `)') do [`|' [BLOCK_VAR] `|'] COMPSTMT end    # apply production rule for OPERATION
+
+IDENTIFIER (`(' [CALL_ARGS] `)') do [`|' [BLOCK_VAR] `|'] COMPSTMT end    # apply production rule for IDENTIFIER
+
+IDENTIFIER + - ARG (`(' [CALL_ARGS] `)') do [`|' [BLOCK_VAR] `|'] COMPSTMT end    # and we're done! no more nonterminals

@@ -1,0 +1,43 @@
+def get_season(month, day):
+  # season starts
+  spring_start = (3, 20)    # (day, month)
+  summer_start = (6, 21)
+  autumn_start = (9, 22)
+  winter_start = (12, 21)
+  
+  # dictionary with key=month, value=max_day
+  months = { "january": 31, "february": 28, "march": 31, "april": 30, "may": 31, "june": 30, "july": 31, "august": 31, "september": 30, "october": 31, "november": 30, "december": 31 }
+  
+  # check if month invalid
+  month = month.lower()    
+  if month not in months:
+    return "Invalid"
+  
+  # check if day invalid
+  max_day = months[month]   # get max_days
+  if not 1 <= day <= max_day:
+    return "Invalid"
+  
+  # get month number
+  month_num = None
+  for idx, (month_name, month_maxdays) in enumerate(months.items()):
+    if month_name == month:
+      month_num = idx + 1
+  
+  # find out which season
+  if (month_num, day) >= spring_start and (month_num, day) < summer_start:
+    return "Spring"
+  elif (month_num, day) >= summer_start and (month_num, day) < autumn_start:
+    return "Summer"
+  elif (month_num, day) >= fall_start and (month_num, day) < winter_start:
+    return "Autumn"
+  else:
+    return "Winter"
+  
+  
+  
+# now to use the function we just made
+input_month = input()
+input_day = int(input())
+season = get_season(input_month, input_day)
+print(season)

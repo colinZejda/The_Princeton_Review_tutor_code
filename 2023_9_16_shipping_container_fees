@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <string.h>
+
+// Function to calculate the weight of a compartment
+double calculateWeight(char *compartment) {
+    
+    // Initialize the weight variable to 0.0
+    double weight = 0.0;
+
+    // Get the length of the compartment string
+    int length = strlen(compartment);
+    
+    // Iterate through each character in the compartment string
+    for (int i = 0; i < length; i++) {
+         
+         // Get the current character
+        char item = compartment[i];
+        
+        // Check if the character is a letter (a-z or A-Z)
+        if ((item >= 'a' && item <= 'z') || (item >= 'A' && item <= 'Z')) {
+
+            // If it's a lowercase letter (a-z), calculate its weight
+            if (item >= 'a' && item <= 'z') {
+
+                // Weight is incremented by (character_position + 1) * 0.1
+                weight += (item - 'a' + 1) * 0.1;
+
+            } else {
+
+                // If it's an uppercase letter (A-Z), calculate its weight
+                // Weight is incremented by (character_position + 1 + 26) * 0.1
+                weight += (item - 'A' + 1) * 0.1;
+            }
+        }
+    }
+    
+    // Return the calculated weight for the compartment
+    return weight;
+}
+
+int main() {
+    
+    char input[101];  // Container input string, max length is 100 characters
+    int containerCount = 0;
+    double totalShippingFee = 0.0;
+
+    // Read container input until a single dot is encountered
+    while (1) {
+        
+        // Prompt the user to enter a container string
+        printf("Container: ");
+        //scanf("%s", input);
+        if (scanf("%s", input) != 1)       // new check for scanf (avoids 2nd prompt)
+            break;
+
+        // Check if the entered string is a single dot, which marks the end of input
+        if (input[0] == '.') {
+            
+            // Exit the loop if a dot is encountered
+            break;
+        }
+
+        // Get the length of the entered string
+        int length = strlen(input);
+        int halfLength = length / 2;
+
+        char compartment1[101];
+        char compartment2[101];
+
+        // Separate the entered string into two compartments of equal length
+        strncpy(compartment1, input, halfLength);
+        compartment1[halfLength] = '\0';
+
+        strncpy(compartment2, input + halfLength, halfLength);
+        compartment2[halfLength] = '\0';
+
+        // Calculate the weight of each compartment using the calculateWeight function
+        double weight1 = calculateWeight(compartment1);
+        double weight2 = calculateWeight(compartment2);
+
+        // Calculate the shipping fee using the greater weight between the two compartments
+        double shippingFee = (weight1 > weight2) ? weight1 * 2.75 : weight2 * 2.75;
+
+        // Display the shipping fee for this container
+        // printf("Shipping fee for container %d: $%.2lf\n", containerCount + 1, shippingFee);
+
+        // Update the total shipping fee by adding the fee for the current container
+        totalShippingFee += shippingFee;
+
+        // Increment the container count
+        containerCount++;
+    }
+
+    // Display the total number of containers and the total shipping fee
+    printf("%d containers, total shipping fee $%.2lf\n", containerCount, totalShippingFee);
+   
+}

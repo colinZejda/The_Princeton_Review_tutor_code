@@ -1,0 +1,97 @@
+Questions below: 
+
+Answer the following questions.
+What is an operating system?
+What is a kernel of an operating system?
+What is a shell in Unix?
+Explain the advantages and disadvantages of using a high-level programming language versus assembly
+Answer the following questions for directory navigation. Demonstrate your answers by typing the appropriate commands and capture the screen with a screenshot called Q2.png. We assume that you are in directory /home/<username>/2211/Assignments/Assignment1 where <username> is your username. Create directories along the path if they do not exist.
+
+For this question, use compute.gaul.csd.uwo.ca.
+In /home/<username>/2211/Assignments/Assignment1, create four objects in this directory: two directories called dir0 and dir1 and two files called df0 and df1. Then, in dir0 create a file df0.
+Navigate to the directory dir0
+Demonstrate you are in /home/<username>/2211/Assignments/Assignment1/dir0
+Navigate back to your home directory using a shortcut
+Answer the following questions for the use of ls command. Demonstrate your answers by typing the appropriate commands and capture the screen with a screenshot called Q3.png. We assume that you are in directory /home/<username>/2211/Assignments/Assignment1 where <username> is your username.
+
+For this question, use compute.gaul.csd.uwo.ca.
+What option(s) should we use with ls if we want to display permission information?
+What option(s) should we add to ls di* to display permission information of dir0 and dir1 but not their contents?
+What option(s) should we use to display permission information sorted by modification time, such that the most recently updated file/directory appears last.
+What option(s) should we use to display permission information for every file and directory under /home/<username>/2211/Assignments/Assignment1
+Answer the following questions for the use of find command. Demonstrate your answers by typing the appropriate commands and capture the screen with a screenshot called Q4.png. We assume that you are in directory /home/<username>/2211/Assignments/Assignment1 where <username> is your username.
+
+For this question, use compute.gaul.csd.uwo.ca.
+What option(s) should we use if we want to display recursively all the directory names?
+What option(s) should we use if we want to display recursively all the empty directory names?
+What option(s) should we use if we want to display recursively all the files (but not directory) whose name starts with d?
+What option(s) should we use if we want to display all the files that have been accessed within the last 48 hours?
+
+"Gimme" question
+You will need to choose an editor ("IDE") for the C programs you will write in the labs and assignments. Identify 3 editors you could use for writing C programs and provide a short list of advantages and disadvantages to each.
+ 
+
+
+ls -a    # a for all, shows hidden files
+
+ls -l     # l for long, shows permission info
+
+ls -d      # display info only for the directory (but not its contents, 1 level)
+
+ls -t      # sort by modification time
+
+ls -r      # display in reverse
+
+
+
+ls -ld di*         # like that
+
+# the line above uses -l and -d (long format, only dir info)
+
+# di* means all directories that start with "di," * is wildcard, matches any string
+
+# di* matches dir0, dir1, diadfhasiufdhkjhs, etc
+
+
+
+# problem 3 (block) answers: 
+
+ls -l
+
+ls -ld di*
+
+ls -ltr           
+
+ls -l /home/hpate384/2211/Assignments/Assignment1
+
+-type d - searching for directories only
+
+-type f - searching for files only 
+
+# problem 4 notes
+
+recursion: applies the rule to current directory as well as all subdirectories 
+
+find command: used for walking a file hierarchy
+
+cp: copy the files too
+
+
+
+-type - allows u to speicify what ur looking for
+
+
+
+
+
+Q4 (block) answers:
+
+1) find -type d
+
+2) find -type d -empty
+
+3) find -type f -name "d*"
+
+4) find -type f -atime -2     # 2 for 48 hours
+
+

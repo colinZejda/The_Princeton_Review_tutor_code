@@ -1,0 +1,42 @@
+two's complement:
+
+a form of representing binary in such a way that facilitates +, -, *, / in BINARY on computers
+
+when we flip all bits, add 1, what happens? you get a negative number
+
+
+
+
+start: -57.1875
+
+end: int part into 8 bits, fraction into 4 bits
+
+calculator yielded: 111001.0011
+
+- means 1 at the beginning
+
+57 is what in binary?
+
+        2^5 = 32, 2^4 = 16, 2^3 = 8, 2^0 = 1, so 32 + 16 + 8 + 1 = 57     --> 11 1001  (only 6 bits)
+
+        integer part needs to be 8 bits: 0011 1001
+
+        make it negative, use two's complement: 1100 0111
+
+0.1875 is what in binary?
+
+        2^-1 = 1/2 = 0.5,
+
+        2^-2 = 1/4 = 0.25,
+
+        2^-3 = 1/8 = 0.125
+
+        2^-4 = 1/16 = 0.0625
+
+        what do we add to get 0.1875?       0.0125 + 0.0625 = 0.1875
+
+        so what is 0.1875 in binary?           0.0011
+
+combined:
+
+        11000111.0011
